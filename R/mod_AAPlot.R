@@ -12,10 +12,18 @@ mod_AAPlot_ui <- function(id){
   tagList(
     sidebarLayout(
       sidebarPanel(
-        "peptide_sequence"
+        textAreaInput(
+          ns("peptide"),
+          label = "Peptide sequence",
+          width = 300,
+          height = 100,
+          placeholder = "Insert peptide sequence"
+        )
       ),
       mainPanel(
-        "plot"
+        plotOutput(
+          outputId = ns("abundance")
+        )
       )
     )
   )
