@@ -35,7 +35,13 @@ mod_AAPlot_ui <- function(id){
 mod_AAPlot_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-
+    output$abundance <- renderPlot({
+      if(input$peptide != ""){
+        corr_input <- gsub(" ", "", input$peptide)
+        corr_input |>
+          Group.5.Dogma::col_plot()
+      }
+    })
   })
 }
 
