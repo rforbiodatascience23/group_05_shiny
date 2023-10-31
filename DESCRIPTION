@@ -1,33 +1,20 @@
 Package: MyApp
 Title: An Amazing Shiny App
 Version: 0.0.0.9000
-Authors@R: 
-  c(person(given = "Chuang",
-           family = "Hembo",
-           role = c("aut", "cre"), # There must be a "cre", but there can only be one
-           email = "s233427"), 
-    person(given = "Subhayan",
-           family = "Akhuli",
-           role = "aut",
-           email = "s233403@dtu.dk"),
-    person(given = "Adomas",
-           family = "lastname",
-           role = "aut",
-           email = "your@email.com"),
-    person(given = "Réka",
-           family = "lastname",
-           role = "aut",
-           email = "your@email.com"),
-    person(given = "Emmanuel",
-           family = "Minois-Genin",
-           role = "aut",
-           email = "s233036@dtu.dk"))
+Authors@R: c(
+    person("Chuang", "Hembo", , "s233427", role = c("aut", "cre")),
+    person("Subhayan", "Akhuli", , "s233403@dtu.dk", role = "aut"),
+    person("Adomas", "lastname", , "your@email.com", role = "aut"),
+    person("Réka", "lastname", , "your@email.com", role = "aut"),
+    person("Emmanuel", "Minois-Genin", , "s233036@dtu.dk", role = "aut")
+  )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Imports: 
     config (>= 0.3.2),
+    ggplot2,
     golem (>= 0.4.1),
-    pkgload,
+    Group.5.Dogma,
     shiny (>= 1.7.5.1)
 Encoding: UTF-8
 LazyData: true
