@@ -18,10 +18,10 @@ Authors@R:
            family = "lastname",
            role = "aut",
            email = "your@email.com"),
-    person(given = "Adomas",
-           family = "lastname",
+    person(given = "Emmanuel",
+           family = "Minois-Genin",
            role = "aut",
-           email = "your@email.com"))
+           email = "s233036@dtu.dk"))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Imports: 
