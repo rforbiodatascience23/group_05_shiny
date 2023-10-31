@@ -17,7 +17,7 @@ app_ui <- function(request) {
           "module1"),
         tabPanel(
           title = "panel2",
-          "module2")
+          mod_AAPlot_ui("AAPlot_1"))
         )
       )
     )
