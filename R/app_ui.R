@@ -10,9 +10,17 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic
     fluidPage(
-      h1("MyApp")
+      h1("MyApp"),
+      tabPanel(
+        tabPanel(
+          title = "panel1",
+          "module1"),
+        tabPanel(
+          title = "panel2",
+          "module2")
+        )
+      )
     )
-  )
 }
 
 #' Add external Resources to the Application
