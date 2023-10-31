@@ -11,9 +11,8 @@ mod_SequenceHandler_ui <- function(id){
   ns <- NS(id)
   tagList(
     fluidRow(
-      column(8, textOutput(
-                  ns("generate_DNA"),
-                  )
+      column(8,
+             shiny::uiOutput(ns("DNA"))
              ),
       column(4,
                actionButton(
@@ -23,7 +22,8 @@ mod_SequenceHandler_ui <- function(id){
                   )
                )
     ),
-    "peptide_sequence"
+    shiny::verbatimTextOutput(outputId = ns("peptide")) |>
+    shiny::tagAppendAttributes(style = "white-space: pre-wrap;")
 
   )
 }
@@ -35,7 +35,7 @@ mod_SequenceHandler_ui <- function(id){
 mod_SequenceHandler_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-      output$generate_DNA <- renderText({
+      output$DNA <- renderText({
         if(input$generate != 0)
         replicate(20)
         }
