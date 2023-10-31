@@ -32,7 +32,7 @@ mod_AAPlot_ui <- function(id){
 #' AAPlot Server Functions
 #'
 #'@importFrom ggplot2 theme
-#'@import BioSeqR
+#'@importFrom BioSeqR col_plot
 #' @noRd
 mod_AAPlot_server <- function(id){
   moduleServer( id, function(input, output, session){
@@ -41,7 +41,7 @@ mod_AAPlot_server <- function(id){
       if(input$peptide != ""){
         corr_input <- gsub(" ", "", input$peptide)
         corr_input |>
-          BioSeqR::col_plot()
+          col_plot()
       }
     })
   })

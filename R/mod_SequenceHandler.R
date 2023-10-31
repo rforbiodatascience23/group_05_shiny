@@ -11,31 +11,39 @@ mod_SequenceHandler_ui <- function(id){
   ns <- NS(id)
   tagList(
     fluidRow(
-      column(8,
-             uiOutput(ns("DNA"))
-             ),
-      column(4,
-               actionButton(
-                  ns("generate"),
-                  label="Generate a random DNA sample",
-                  value=""
-                  )
-               )
+      column(8, shiny::uiOutput(ns("DNA"))),
+      column(4, shiny::numericInput(
+        inputId = ns("dna_length"),
+        value = 6000,
+        min = 3,
+        max = 100000,
+        step = 3,
+        label = "Random DNA length"
+      ),
+      shiny::actionButton(
+        inputId = ns("generate_dna"),
+        label = "Generate random DNA", style = "margin-top: 18px;"
+      ))
     ),
-    verbatimTextOutput(outputId = ns("peptide")) |>
-    tagAppendAttributes(style = "white-space: pre-wrap;")
+    shiny::verbatimTextOutput(outputId = ns("peptide")) |>
+      shiny::tagAppendAttributes(style = "white-space: pre-wrap;")
 
   )
 }
 
 #' mod_SequenceHandler Server Functions
 #'
-#' @importFrom BioSeqR replicate
+#' @importFrom BioSeqR replicate transcribe translate get_codons
 #' @noRd
 mod_SequenceHandler_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     dna <- reactiveVal()
+    observeEvent(input$generate_dna, {
+      dna(
+        replicate(input$dna_length)
+      )
+    })
 
     output$DNA <- renderUI({
       textAreaInput(
@@ -47,12 +55,22 @@ mod_SequenceHandler_server <- function(id){
         width = 600
       )
     })
-
-      output$DNA <- renderText({
-        if(input$generate != 0)
-        replicate(20)
+      output$peptide <- renderText({
+        # Ensure input is not NULL and is longer than 2 characters
+        if(is.null(input$DNA)){
+          NULL
+        } else if(nchar(input$DNA) < 3){
+          NULL
+        } else{
+          input$DNA |>
+            toupper() |>
+            transcribe() |>
+            get_codons() |>
+            translate()
         }
-      )
+      })
+
+
   })
 }
 
