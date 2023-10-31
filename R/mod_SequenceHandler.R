@@ -6,13 +6,13 @@
 #'
 #' @noRd
 #'
-#' @importFrom shiny NS tagList
+#' @importFrom shiny NS tagList uiOutput verbatimTextOutput tagAppendAttributes
 mod_SequenceHandler_ui <- function(id){
   ns <- NS(id)
   tagList(
     fluidRow(
       column(8,
-             shiny::uiOutput(ns("DNA"))
+             uiOutput(ns("DNA"))
              ),
       column(4,
                actionButton(
@@ -22,8 +22,8 @@ mod_SequenceHandler_ui <- function(id){
                   )
                )
     ),
-    shiny::verbatimTextOutput(outputId = ns("peptide")) |>
-    shiny::tagAppendAttributes(style = "white-space: pre-wrap;")
+    verbatimTextOutput(outputId = ns("peptide")) |>
+    tagAppendAttributes(style = "white-space: pre-wrap;")
 
   )
 }
@@ -35,6 +35,19 @@ mod_SequenceHandler_ui <- function(id){
 mod_SequenceHandler_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
+    dna <- reactiveVal()
+
+    output$DNA <- renderUI({
+      textAreaInput(
+        inputId = ns("DNA"),
+        label = "DNA sequence",
+        placeholder = "Insert DNA sequence",
+        value = dna(),
+        height = 100,
+        width = 600
+      )
+    })
+
       output$DNA <- renderText({
         if(input$generate != 0)
         replicate(20)
