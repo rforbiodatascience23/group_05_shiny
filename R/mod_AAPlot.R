@@ -31,6 +31,8 @@ mod_AAPlot_ui <- function(id){
 
 #' AAPlot Server Functions
 #'
+#'@importfrom ggplot2 theme
+#'@import Group.5.Dogma
 #' @noRd
 mod_AAPlot_server <- function(id){
   moduleServer( id, function(input, output, session){
