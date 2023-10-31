@@ -11,18 +11,17 @@ mod_SequenceHandler_ui <- function(id){
   ns <- NS(id)
   tagList(
     fluidRow(
-      column(8, "DNA_sequence"),
-      column(4, sliderInput(
-                  ns("sequence_size"),
-                  label="Size of the DNA sample",
-                  min=0,
-                  max=200,
-                  value=10),
-             actionButton(
-               ns("generate"),
-               label="Generate a random DNA sample"),
-                value=""
-             )
+      column(8, textOutput(
+                  ns("generate_DNA"),
+                  )
+             ),
+      column(4,
+               actionButton(
+                  ns("generate"),
+                  label="Generate a random DNA sample",
+                  value=""
+                  )
+               )
     ),
     "peptide_sequence"
 
@@ -31,11 +30,16 @@ mod_SequenceHandler_ui <- function(id){
 
 #' mod_SequenceHandler Server Functions
 #'
+#' @importFrom BioSeqR replicate
 #' @noRd
 mod_SequenceHandler_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-
+      output$generate_DNA <- renderText({
+        if(input$generate != 0)
+        replicate(20)
+        }
+      )
   })
 }
 

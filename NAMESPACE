@@ -3,6 +3,7 @@
 export(run_app)
 import(BioSeqR)
 import(shiny)
+importFrom(BioSeqR,replicate)
 importFrom(ggplot2,theme)
 importFrom(golem,activate_js)
 importFrom(golem,add_resource_path)
