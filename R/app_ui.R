@@ -14,7 +14,7 @@ app_ui <- function(request) {
       tabPanel(
         tabPanel(
           title = "panel1",
-          "module1"),
+          mod_SequenceHandler_ui("mod_SequenceHandler_1")),
         tabPanel(
           title = "panel2",
           mod_AAPlot_ui("AAPlot_1"))

@@ -7,7 +7,7 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList
-mod_mod_SequenceHandler_ui <- function(id){
+mod_SequenceHandler_ui <- function(id){
   ns <- NS(id)
   tagList(
 
@@ -17,7 +17,7 @@ mod_mod_SequenceHandler_ui <- function(id){
 #' mod_SequenceHandler Server Functions
 #'
 #' @noRd
-mod_mod_SequenceHandler_server <- function(id){
+mod_SequenceHandler_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
@@ -25,7 +25,7 @@ mod_mod_SequenceHandler_server <- function(id){
 }
 
 ## To be copied in the server
-# mod_mod_SequenceHandler_ui("mod_SequenceHandler_1")
+# mod_SequenceHandler_ui("mod_SequenceHandler_1")
 
 ## To be copied in the server
-# mod_mod_SequenceHandler_server("mod_SequenceHandler_1")
+# mod_SequenceHandler_server("mod_SequenceHandler_1")
