@@ -3,6 +3,7 @@
 export(run_app)
 import(Group.5.Dogma)
 import(shiny)
+importFrom(ggplot2,theme)
 importFrom(golem,activate_js)
 importFrom(golem,add_resource_path)
 importFrom(golem,bundle_resources)
