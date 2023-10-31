@@ -2,12 +2,28 @@ Package: MyApp
 Title: An Amazing Shiny App
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "firstname",
+  c(person(given = "Chuang",
            family = "lastname",
-           role = c("aut", "cre"),
-           email = "your@email.com")
+           role = c("aut", "cre"), # There must be a "cre", but there can only be one
+           email = "your@email.com"), 
+    person(given = "Subhayan",
+           family = "lastname",
+           role = "aut",
+           email = "your@email.com"),
+    person(given = "Adomas",
+           family = "lastname",
+           role = "aut",
+           email = "your@email.com"),
+    person(given = "Réka",
+           family = "lastname",
+           role = "aut",
+           email = "your@email.com"),
+    person(given = "Adomas",
+           family = "lastname",
+           role = "aut",
+           email = "your@email.com"))
 Description: What the package does (one paragraph).
-License: What license is it under?
+License: MIT + file LICENSE
 Imports: 
     config (>= 0.3.2),
     golem (>= 0.4.1),
