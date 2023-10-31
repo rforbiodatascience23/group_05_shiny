@@ -10,14 +10,11 @@
 mod_SequenceHandler_ui <- function(id){
   ns <- NS(id)
   tagList(
-    sidebarLayout(
-      sidebarPanel(
-        "DNA_sequence"
-      ),
-      mainPanel(
-        "plot"
-      )
-    )
+    fluidRow(
+      column(8, "DNA_sequence"),
+      column(4, "random_dna_length", "generate_dna_button")
+    ),
+    "peptide_sequence"
 
   )
 }
