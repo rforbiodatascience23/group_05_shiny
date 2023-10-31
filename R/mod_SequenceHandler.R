@@ -10,6 +10,14 @@
 mod_SequenceHandler_ui <- function(id){
   ns <- NS(id)
   tagList(
+    sidebarLayout(
+      sidebarPanel(
+        "DNA_sequence"
+      ),
+      mainPanel(
+        "plot"
+      )
+    )
 
   )
 }
@@ -29,3 +37,14 @@ mod_SequenceHandler_server <- function(id){
 
 ## To be copied in the server
 # mod_SequenceHandler_server("mod_SequenceHandler_1")
+
+
+if(FALSE){ # Testing
+  golem::detach_all_attached()
+  golem::document_and_reload()
+  ui <- mod_SequenceHandler_ui("mod_SequenceHandler_1") # replace NAME here
+  server <- function( input,output,session){
+    mod_SequenceHandler_server("mod_SequenceHandler_1") # and here
+  }
+  shiny::shinyApp(ui, server)
+}

@@ -11,7 +11,7 @@ app_ui <- function(request) {
     # Your application UI logic
     fluidPage(
       h1("MyApp"),
-      tabPanel(
+      tabsetPanel(
         tabPanel(
           title = "panel1",
           mod_SequenceHandler_ui("mod_SequenceHandler_1")),
