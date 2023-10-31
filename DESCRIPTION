@@ -7,9 +7,9 @@ Authors@R:
            role = c("aut", "cre"), # There must be a "cre", but there can only be one
            email = "s233427"), 
     person(given = "Subhayan",
-           family = "lastname",
+           family = "Akhuli",
            role = "aut",
-           email = "your@email.com"),
+           email = "s233403@dtu.dk"),
     person(given = "Adomas",
            family = "lastname",
            role = "aut",
