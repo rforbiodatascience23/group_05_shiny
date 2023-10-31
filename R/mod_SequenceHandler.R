@@ -12,7 +12,17 @@ mod_SequenceHandler_ui <- function(id){
   tagList(
     fluidRow(
       column(8, "DNA_sequence"),
-      column(4, sliderInput(ns("sequence_size", label="Size of the DNA sample")), actionButton(ns("generate"), label="Generate a random DNA sample"))
+      column(4, sliderInput(
+                  ns("sequence_size"),
+                  label="Size of the DNA sample",
+                  min=0,
+                  max=200,
+                  value=10),
+             actionButton(
+               ns("generate"),
+               label="Generate a random DNA sample"),
+                value=""
+             )
     ),
     "peptide_sequence"
 
